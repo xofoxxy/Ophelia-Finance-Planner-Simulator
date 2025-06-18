@@ -79,6 +79,9 @@ class Account:
         print(f"{self.name}'s balance aggregate is {self.balance_history.loc[years-1, 'balance']}")
         return self.balance_history.loc[years-1, 'balance']
 
+    def reset(self):
+        self.balance_history = pd.DataFrame()
+
     def graph_everything(self):
         figure, axis = plt.subplots(len(self.balance_history.columns), sharex=True)
         for column in self.balance_history.columns:
